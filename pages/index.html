@@ -99,6 +99,9 @@
       .CoveoFacet {
         padding-bottom: 12px;
       }
+      .CoveoFacet[data-title="Breed"] .coveo-facet-value-count {
+        display: none;
+      }
       .coveo-facet-more {
         margin-bottom: -12px;
       }
@@ -160,18 +163,19 @@
 
     <div class='coveo-search-section'>
       <div class="CoveoSettings"></div>
+      <div class="CoveoAnalytics" data-search-hub="CommunitySearch"></div>
       <div class="CoveoSearchbox" data-enable-omnibox="true"></div>
     </div>
     <div class="coveo-main-section">
       <div class="coveo-facet-column">
-        <div class="CoveoFacet" data-title="Breed" data-field="@tkc_breed" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Category" data-field="@tkc_category" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Exercise" data-field="@tkc_exercise" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Size" data-field="@tkc_size" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Size of home" data-field="@tkc_size_of_home" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Size of garden" data-field="@tkc_size_of_garden" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Coat length" data-field="@tkc_coat_length" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Grooming" data-field="@tkc_grooming" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Breed" data-field="@tkc_breed" data-tab="All" data-enable-toggling-operator="true" data-sort-criteria="alphaascending"></div>
+        <div class="CoveoFacet" data-title="Category" data-field="@tkc_category" data-tab="All" data-sort-criteria="alphaascending"></div>
+        <div class="CoveoFacet" data-title="Exercise" data-field="@tkc_exercise" data-tab="All" data-custom-sort="Up to 30 minutes per day, Up to 1 hour per day, More than 2 hours per day"></div>
+        <div class="CoveoFacet" data-title="Size" data-field="@tkc_size" data-tab="All" data-custom-sort="Small, Medium, Large"></div>
+        <div class="CoveoFacet" data-title="Size of home" data-field="@tkc_size_of_home" data-tab="All" data-custom-sort="Flat/ Apartment, Small house, Large house"></div>
+        <div class="CoveoFacet" data-title="Size of garden" data-field="@tkc_size_of_garden" data-tab="All" data-custom-sort="No garden, Small/ medium garden, Large garden"></div>
+        <div class="CoveoFacet" data-title="Coat length" data-field="@tkc_coat_length" data-tab="All" data-custom-sort="Short, Medium, Long"></div>
+        <div class="CoveoFacet" data-title="Grooming" data-field="@tkc_grooming" data-tab="All" data-custom-sort="Once a week, More than once a week, Every day"></div>
         <div class="CoveoFacet" data-title="Sheds" data-field="@tkc_sheds" data-tab="All"></div>
       </div>
       <div class="coveo-results-column">
