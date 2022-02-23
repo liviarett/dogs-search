@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, height=device-height" >
+    <title>Doggos</title>
+    <link rel="stylesheet" href="./css/CoveoFullSearch.css"/>
+    <link rel="stylesheet" href="./css/coveoextension.css"/>
+    <script src="js/CoveoJsSearch.Lazy.js"></script>
+    <script src="js/coveo.extension.js"></script>
+    <script src="js/templates/templates.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Coveo.SearchEndpoint.configureCloudV2Endpoint("liviaretttesta3mx6pfy","xx3cc2bb49-768f-4b23-98ca-4ee2862e1d46");
+        Coveo.init(document.body);
+      })
+    </script>
+    <style>
+      .coveo-facet-value.coveo-facet-search-button,
+      .CoveoResultLink,
+      a.CoveoResultLink,
+      .CoveoResult a.CoveoResultLink,
+      .coveo-facet-header-title,
+      .coveo-facet-settings-more-svg,
+      .coveo-breadcrumb-clear-all {
+        color: darkgreen;
+      }
+      .CoveoResult a.CoveoResultLink:visited {
+        color: black;
+      }
+      .CoveoFieldValue .coveo-clickable,
+      .coveo-results-per-page-list-item,
+      .coveo-facet-breadcrumb-value.coveo-selected *,
+      .coveo-facet-slider-breadcrumb-value.coveo-selected *,
+      .coveo-facet-breadcrumb-value-list-item.coveo-selected *,
+      .coveo-icon-for-quickview-svg,
+      .coveo-pager-list-item,
+      .coveo-pager-next-icon-svg,
+      .coveo-pager-previous-icon-svg,
+      .coveo-settings-advanced-menu * {
+        color: forestgreen;
+      }
+      svg {
+        color: forestgreen !important;
+      }
+      .coveo-results-per-page-list-item.coveo-active,
+      .coveo-results-per-page-list-item:hover,
+      .coveo-pager-list-item.coveo-active,
+      .coveo-pager-list-item:hover {
+        background-color: darkgreen;
+      }
+      .coveo-quick-view header {
+        border: none;
+      }
+      .coveo-quick-view header h1 {
+        display: none;
+      }
+      .coveo-quick-view-image {
+        width: 300px;
+        height: fit-content;
+      }
+      .coveo-quick-view-details {
+        display: flex;
+        align-items: center;
+        margin-top: 24px;
+      }
+      .coveo-result-link {
+        text-transform: uppercase;
+        font-size: 18px;
+      }
+      .coveo-quick-view-wrapper {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .coveo-quick-view-wrapper > div {
+        max-width: 60%;
+      }
+      .coveo-quick-view-wrapper .coveo-result-link {
+        font-size: 24px;
+      }
+      .coveo-quick-view-table {
+        text-align: left;
+        margin-left: 24px;
+      }
+      .coveo-quick-view-table td {
+        font-size: 17px;
+        padding-left: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      .coveo-quick-view-description {
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+  <body id="search" class='CoveoSearchInterface' data-enable-history="true">
+    <!-- <div class="coveo-tab-section">
+      <a class="CoveoTab" data-id="All" data-caption="Everything"></a>
+    </div> -->
+    <script class='result-template' type='text/underscore' id='QuickViewTemplate'>
+      <div class="coveo-quick-view-wrapper">
+        <div>
+          <a class="CoveoResultLink coveo-result-link" target="_blank"></a>
+          <div class="coveo-quick-view-description"><%= raw.tkc_description %></div>
+          <div class="coveo-quick-view-details">
+            <img class="coveo-quick-view-image" src="<%= raw.tkc_image %>" />
+            <div>
+              <table class="coveo-quick-view-table">
+                <tbody>
+                  <tr>
+                    <th>Category</th>
+                    <td class="CoveoFieldValue" data-field="@tkc_category" data-caption="Category" />
+                  </tr>
+                  <tr>
+                    <th>Exercise</th>
+                    <td class="CoveoFieldValue" data-field="@tkc_exercise" data-caption="Exercise" />
+                  </tr>
+                  <tr>
+                    <th>Size</th>
+                    <td class="CoveoFieldValue" data-field="@tkc_size" data-caption="Size" />
+                  </tr>
+                  <tr>
+                    <th>Size of home</th>
+                    <td class="CoveoFieldValue" data-field="@tkc_size_of_home" data-caption="Size of home" />
+                  </tr>
+                  <tr>
+                    <th>Size of garden</th>
+                    <td class="CoveoFieldValue" data-field="@tkc_size_of_garden" data-caption="Size of garden" />
+                  </tr>
+                  <tr>
+                    <th>Coat length</th>
+                    <td class="CoveoFieldValue" data-field="@tkc_coat_length" data-caption="Coat length" />
+                  </tr>
+                  <tr>
+                    <th>Grooming</th>
+                    <td class="CoveoFieldValue" data-field="@tkc_grooming" data-caption="Grooming" />
+                  </tr>
+                  <tr>
+                    <th>Sheds</th>
+                    <td class="CoveoFieldValue" data-field="@tkc_sheds" data-caption="Sheds" />
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <div class='coveo-search-section'>
+      <div class="CoveoSettings"></div>
+      <div class="CoveoSearchbox" data-enable-omnibox="true"></div>
+    </div>
+    <div class="coveo-main-section">
+      <div class="coveo-facet-column">
+        <div class="CoveoFacet" data-title="Breed" data-field="@tkc_breed" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Category" data-field="@tkc_category" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Exercise" data-field="@tkc_exercise" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Size" data-field="@tkc_size" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Size of home" data-field="@tkc_size_of_home" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Size of garden" data-field="@tkc_size_of_garden" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Coat length" data-field="@tkc_coat_length" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Grooming" data-field="@tkc_grooming" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Sheds" data-field="@tkc_sheds" data-tab="All"></div>
+      </div>
+      <div class="coveo-results-column">
+        <div class="CoveoShareQuery"></div>
+        <div class="CoveoExportToExcel"></div>
+        <div class="CoveoPreferencesPanel">
+          <div class="CoveoResultsPreferences"></div>
+          <div class="CoveoResultsFiltersPreferences"></div>
+        </div>
+        <div class="CoveoBreadcrumb"></div>
+        <div class="coveo-results-header">
+          <div class="coveo-summary-section">
+            <span class="CoveoQuerySummary"></span>
+            <span class="CoveoQueryDuration"></span>
+          </div>
+          <div class="coveo-result-layout-section">
+            <span class="CoveoResultLayout"></span>
+          </div>
+          <div class="coveo-sort-section">
+            <span class="CoveoSort" data-sort-criteria="relevancy" data-caption="Relevance"></span>
+            <span class="CoveoSort" data-sort-criteria="date descending,date ascending" data-caption="Date"></span>
+          </div>
+        </div>
+        <div class="CoveoHiddenQuery"></div>
+        <div class="CoveoDidYouMean"></div>
+        <div class="CoveoErrorReport"></div>
+        <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="true" data-fields-to-include="@tkc_description,@tkc_breed,@tkc_category,@tkc_exercise,@tkc_size,@tkc_size_of_home,@tkc_size_of_garden,@tkc_coat_length,@tkc_grooming,@tkc_sheds">
+          <style>
+            .coveo-result-list-image {
+              width: 100px;
+            }
+            .coveo-list-flex {
+              display: flex;
+              justify-content: space-between;
+            }
+            .coveo-list-qucik-view {
+              margin-right: 24px
+            }
+            .coveo-result-list-details {
+              margin-left: 24px
+            }
+            .coveo-list-result-top-row {
+              margin-bottom: 12px
+            }
+          </style>
+          <script type="text/underscore" class="result-template" data-field-filetype="txt">
+            <div class="coveo-result-frame coveo-list-flex">
+              <img class="coveo-result-list-image" src="<%= raw.tkc_image%>" />
+              <div class='coveo-result-list-details'>
+                <div class="coveo-list-flex coveo-list-result-top-row">
+                  <a class="CoveoResultLink coveo-result-link" target="_blank"></a>
+                  <div class="CoveoQuickview coveo-list-qucik-view" data-template-id='QuickViewTemplate'></div>
+                </div>
+                <div class='CoveoExcerpt'></div>
+              </div>
+            </div>
+          </script>
+        </div>
+        <!-- <div class="CoveoResultList" data-layout="card" data-wait-animation="fade" data-auto-select-fields-to-include="true"></div> -->
+        <div class="CoveoPager"></div>
+        <div class="CoveoLogo"></div>
+        <div class="CoveoResultsPerPage"></div>
+      </div>
+    </div>
+  </body>
+</html>
