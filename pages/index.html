@@ -109,12 +109,41 @@
       .coveo-facet-more {
         margin-bottom: -12px;
       }
+      .CoveoResultsRelated .coveo-folding-results2 {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-top: 24px;
+      }
+      .CoveoResultsRelated .coveo-folding-header-caption {
+        width: 100%;
+        font-weight: bold;
+        grid-column-start: 1;
+        grid-column-end: 5;
+      }
+      .CoveoResultsRelated .CoveoResult {
+        border: none;
+      }
+      .CoveoResultsRelated .CoveoResult img {
+        max-width: 100%;
+      }
+      .CoveoResultsRelated .CoveoResultLink {
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
     </style>
   </head>
   <body id="search" class='CoveoSearchInterface' data-enable-history="true">
     <!-- <div class="coveo-tab-section">
       <a class="CoveoTab" data-id="All" data-caption="Everything"></a>
     </div> -->
+    <script class='result-template' type='text/underscore' id='SimpleCard'>
+      <div class="coveo-quick-view-wrapper">
+          <a class="CoveoResultLink coveo-result-link" target="_blank"></a>
+          <img class="coveo-quick-view-image" src="<%= raw.tkc_image %>" />
+      </div>
+    </script>
+
     <script class='result-template' type='text/underscore' id='QuickViewTemplate'>
       <div class="coveo-quick-view-wrapper">
         <div>
@@ -161,6 +190,22 @@
               </table>
             </div>
           </div>
+          <div
+            class="CoveoResultsRelated coveo-details"
+            data-result-template-id="SimpleCard"
+            data-name="Related Documents"
+            data-normal-caption="You may also like"
+            data-title-caption="You may also like"
+            data-expanded-caption="Hide Related Documents"
+            data-no-results-caption="No related dogs found"
+            data-always-show="true"
+            data-query='NOT @tkc_breed=<%=raw.tkc_breed%>'
+            data-partial-match=true
+            data-partial-match-keyword=3
+            data-partial-match-treshold='40%'
+            data-number-Of-Results=4
+            data-pipeline='default'
+            >
         </div>
       </div>
     </script>
